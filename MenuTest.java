@@ -57,9 +57,9 @@ class Menu {
 		System.out.println(""); 
 		switch ( saisie.nextInt()){
 		/*	case 1:
-				menuLocataires();
+				Locataires();
 				break;
-			case 2:
+		/*	case 2:
 				menuBiens();
 				break;
 			case 3:	
