@@ -2,17 +2,19 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Locataires {
+
 	Scanner saisie = new Scanner ( System.in );
 
-	
-	int vLocId[] = new int [3]; // création d'un tableau de 500 cases ( identifiants adhérent)
-	String vLocNo[] = new String [500]; // création d'un tableau de 500 cases ( noms d'adhérents)
-	String vLocAd[] = new String [500]; // création d'un tableau de 500 cases (adresses d'adhérents)
+	int tabLocataires[][] = new int [5][500]; // id, nom, adresse, telephone, idbienloué 
+//	int vLocId[] = new int [3]; // création d'un tableau de 500 cases ( identifiants adhérent)
+//	String vLocNo[] = new String [500]; // création d'un tableau de 500 cases ( noms d'adhérents)
+//	String vLocAd[] = new String [500]; // création d'un tableau de 500 cases (adresses d'adhérents)
 //	int vLocBi[] = new int [5]; // création de 500 tab de 5 id de biens à louer ou loué
 
-	int idLoc;
-	String nomLoc;
-	String adresLoc;
+	int idLocataire;
+	int telLocataire;
+	String nomLocataire;
+	String adresseLocataire;
 
 	public void afficher() {
 		System.out.print("ID");
@@ -52,39 +54,53 @@ public class Locataires {
 	}
 	
     public void ajoutLoc() { // ajouter un Locataire
- 		System.out.println("Saisir un numérod'adhérent : ");
- 		idLoc = saisie.nextInt();
+ 		System.out.println("Saisir un numéro d'adhérent : ");
+ 		idLocataire = saisie.nextInt();
 
- 		System.out.println("Saisir un nom : ");
+ /*		System.out.println("Saisir un nom : ");
  		nomLoc = saisie.next();
 
  		System.out.println("Saisir une adresse : ");
- 		adresLoc = saisie.next();
+ 		adresLoc = saisie.next();*/
 
- 		for ( int i = 0 ; i < vLocId.length ; i++ ) {
- 			if ( vLocId[i] == 0 ); // vérifier la case vide
- 			vLocId[i] = idLoc;
- 			vLocNo[i] = nomLoc; 
- 			vLocAd[i] = adresLoc;
+ 		for ( int ligne = 0 ; ligne < tabLocataire.length ; ligne++ ) {
+ 			for ( int colonne = 0 ; colonne < tabLocataire[ligne].length ; colonne++  )
+ 			if ( tabLocataire[ligne][colonne] == 0 ); // vérifier la case vide
+ 			tabLocataire[ligne][colonne] = idLocataire;
+ 			break;
+ 		//	vLocNo[i] = nomLoc; 
+ 		//	vLocAd[i] = adresLoc;
 
 
 
  		}
 
+ 	
   			
 	}
 	  
 
 /*	void modifierLoc() {
+		// rechercher la valeur à modifier
+		System.out.print("Quelle est valeur à modifier ? : ");
+ 		aModifier = saisie.nextInt();
+ 		System.out.println();
+ 		System.out.print("Entrer la nouvelle valeur : ");
+ 		nouvelleValeur = saisie.nextInt();
+ 		System.out.println();
 
+ 		for ( int i = 0 ; i < vLocId.length ; i++ ) {
+ 			if ( vLocId[i] == aModifier ); 
+ 			vLocId[i] = nouvelleValeur;
+ 		}
 
 	}*/
+
 
 /*	void supprimerLoc() {
 		System.out.println("Supprimer quel ID ?");
     	Scanner id = new Scanner ( System.in ) ;
-  		vLocId.remove(id.nextInt());
-
+  	
 	}*/
 
 }
@@ -104,6 +120,7 @@ class LocatairesTest {
     
 
     g.ajoutLoc();
+//    g.modifierLoc();
     System.out.println();
     System.out.println("_____________TABLEAU______________");
     System.out.println();
